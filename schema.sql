@@ -35,7 +35,7 @@ CREATE SCHEMA foodies;
     average_ratings json,
     subsection VARCHAR(150),
     food_category json,
-    rating_count INT,
+    rating_count INT DEFAULT 0,
     restaurant_id INT REFERENCES foodies.restaurants(restaurant_id)
   );
 

@@ -2,6 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import axios from 'axios';
+import ip from './ip';
+
+//components
 import Search from './components/Search.js';
 
 class App extends Component {
@@ -13,7 +16,12 @@ class App extends Component {
   }
 
   onSearchSubmit(value) {
-    alert(value);
+    axios.get(`http://87d1b1ada521.ngrok.io/foods?item=${value}`)
+      .then(res => {
+        console.log(res.data);
+        alert('success!')
+      })
+      .catch(e => alert(e));
   };
 
   render() {

@@ -1,6 +1,13 @@
 const express = require('express');
-const app = express();
+const router = require('./routes');
+
 const port = 3000;
+const app = express();
 
+app.use(express.json());
 
-// SELECT * FROM foodies.items WHERE LOWER(food_name) LIKE '%burrito%';
+app.use(router);
+
+app.listen(port, () => {
+  console.log(`Listening at http://localhost:${port}`);
+});

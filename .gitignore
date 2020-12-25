@@ -14,3 +14,5 @@ web-build/
 
 seed.js
 dummydata.js
+ip.js
+ngrok
