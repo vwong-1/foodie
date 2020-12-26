@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet} from 'react-native';
 
-const Search = ({searchSubmit}) => {
+const Search = ({ searchSubmit }) => {
   const [value, onChangeText] = React.useState('');
 
   return (
