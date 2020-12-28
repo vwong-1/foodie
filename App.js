@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import axios from 'axios';
 // import ip from './ip';
 
 //components
-import Home from './components/Home.js';
-import Search from './components/Search.js';
+import Home from './components/Home';
+import Search from './components/Search';
+import SearchedView from './components/SearchedView';
 
 const App = () => {
   const [searchResults, onSearch] = React.useState();

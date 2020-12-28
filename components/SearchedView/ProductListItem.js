@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
 
-//components
-import Search from './Search';
-
-const Home = ({ searchSubmit }) => {
+const ProductListItem = ({ product }) => {
 
   return (
     <View style = { styles.container } >
-      <Text>Foodie!</Text>
-      <Search searchSubmit={ searchSubmit }/>
-      <StatusBar style="auto" />
+      product
     </View>
   );
 };
@@ -23,4 +17,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default ProductListItem;
