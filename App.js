@@ -13,17 +13,18 @@ const App = () => {
   const [searchResults, onSearch] = React.useState();
 
   const onSearchSubmit = (value) => {
-    axios.get(`http://87d1b1ada521.ngrok.io/foods?item=${value}`)
+    axios.get(`http://0c1f9b5fa12a.ngrok.io/foods?item=${value}`)
       .then(res => {
-        console.log(res.data);
         onSearch(res.data);
       })
       .catch(e => alert(e));
   };
 
+  let view = searchResults ? <SearchedView searchSubmit={onSearchSubmit} searchResults={searchResults} /> : <Home searchSubmit={onSearchSubmit} />
+
   return (
     <View style = { styles.container } >
-      <Home searchSubmit = { onSearchSubmit } />
+      {view}
     </View>
   );
 };

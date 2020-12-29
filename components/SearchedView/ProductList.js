@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
 
 //components
-import ProductListItem from './SearchedView/ProductListItem';
+import ProductListItem from './ProductListItem';
 
 const ProductList = ({ products }) => {
 
-  const listItems = products.map((product) => {
-    <ProductListItem key={product.food_id} product={product} />
-  });
+  const listItems = ({ item }) => <ProductListItem product={item} />;
 
   return (
-    <View style = { styles.container } >
-      {listItems}
-    </View>
+    <SafeAreaView style = { styles.container } >
+      <FlatList data={products} renderItem={listItems} />
+    </SafeAreaView>
   );
 };
 
