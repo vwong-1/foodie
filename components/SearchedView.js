@@ -19,6 +19,7 @@ const SearchedView = ({ searchSubmit, searchResults }) => {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 35,
     width: '100%',
     alignItems: 'center',
   },

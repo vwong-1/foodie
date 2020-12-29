@@ -9,16 +9,19 @@ const ProductList = ({ products }) => {
   const listItems = ({ item }) => <ProductListItem product={item} />;
 
   return (
-    <SafeAreaView style = { styles.container } >
-      <FlatList data={products} renderItem={listItems} />
-    </SafeAreaView>
+    <View style = { styles.container } >
+      <SafeAreaView>
+        <FlatList data={products} renderItem={listItems} keyExtractor={item => item.food_id.toString()} />
+      </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    alignItems: 'center',
+    height: '90%',
+    padding: 10,
   },
 });
 

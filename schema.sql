@@ -36,7 +36,7 @@ CREATE SCHEMA foodies;
     subsection VARCHAR(150),
     food_category json,
     rating_count INT DEFAULT 0,
-    restaurant_id INT REFERENCES foodies.restaurants(restaurant_id)
+    restaurant_id INT REFERENCES foodies.restaurants(restaurant_id) ON DELETE CASCADE
   );
 
   CREATE TABLE foodies.ratings (
@@ -54,5 +54,5 @@ CREATE SCHEMA foodies;
     down_vote INT,
     overall_rating NUMERIC(3, 2),
     user_id INT REFERENCES foodies.users(user_id),
-    food_id INT REFERENCES foodies.items(food_id)
+    food_id INT REFERENCES foodies.items(food_id) ON DELETE CASCADE
   );

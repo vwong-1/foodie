@@ -9,7 +9,7 @@ const Search = ({ searchSubmit }) => {
       style={styles.input}
       onChangeText={text => onChangeText(text)}
       value={value}
-      placeholder={'Test'}
+      placeholder={'Enter Food Name'}
       returnKeyType={'search'}
       onSubmitEditing={() => searchSubmit(value)}
     />
@@ -18,6 +18,7 @@ const Search = ({ searchSubmit }) => {
 
 const styles = StyleSheet.create({
   input: {
+    marginBottom: 20,
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,

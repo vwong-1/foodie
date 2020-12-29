@@ -13,7 +13,7 @@ const App = () => {
   const [searchResults, onSearch] = React.useState();
 
   const onSearchSubmit = (value) => {
-    axios.get(`http://0c1f9b5fa12a.ngrok.io/foods?item=${value}`)
+    axios.get(`http://00030dd842b8.ngrok.io/foods?item=${value}`)
       .then(res => {
         onSearch(res.data);
       })
