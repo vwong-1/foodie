@@ -2,7 +2,7 @@ const models = require('../models');
 
 module.exports = {
   get: (req, res) => {
-    models.ratings.getAll(req.query.id, (err, results) => {
+    models.ratings.get(req.query.id, (err, results) => {
       if (err) {
         res.sendStatus(400);
       } else {

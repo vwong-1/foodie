@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import axios from 'axios';
 
 //components
 import ActiveSearch from './ActiveSearch';
 import ProductList from './SearchedView/ProductList';
-import NavBar from './NavBar';
 
-const SearchedView = ({ setProduct, returnHome, searched, searchSubmit, searchResults, switchView }) => {
+const ItemView = ({ switchView, product }) => {
+  const onPress = () => switchView('SearchedView');
 
   return (
     <View style = { styles.container } >
-      <ActiveSearch searchSubmit={ searchSubmit } searched={searched} returnHome={returnHome}/>
-      <NavBar style = { styles.nav } />
-      <ProductList switchView={switchView} products={searchResults} setProduct={setProduct} />
+      <Button onPress={onPress} title="< Search" />
+      <Text>Product Info</Text>
+      <Text style = { styles.nav }>Nav Bar</Text>
+      <Text>Reviews</Text>
     </View>
   );
 };
@@ -35,4 +36,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SearchedView;
+export default ItemView;

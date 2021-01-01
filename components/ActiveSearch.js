@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Text, Button } from 'react-native';
 
-const Search = ({ searchSubmit }) => {
-  const [value, onChangeText] = React.useState('');
+const Search = ({ returnHome, searched, searchSubmit }) => {
+  const [value, onChangeText] = React.useState(`${searched}`);
 
-  let button = null;
-
-  if (!value.length) {
-    let button = <Button  title="<" />;
-  }
   return (
     <View style={styles.container}>
+      <Button onPress={returnHome} title="<" />
       <TextInput
         style={styles.input}
         onChangeText={text => onChangeText(text)}

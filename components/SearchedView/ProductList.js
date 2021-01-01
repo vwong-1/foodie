@@ -4,9 +4,9 @@ import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
 //components
 import ProductListItem from './ProductListItem';
 
-const ProductList = ({ products }) => {
+const ProductList = ({ setProduct, switchView, products }) => {
 
-  const listItems = ({ item }) => <ProductListItem product={item} />;
+  const listItems = ({ item }) => <ProductListItem switchView={switchView} product={item} setProduct={setProduct} />;
 
   return (
     <View style = { styles.container } >
@@ -19,9 +19,10 @@ const ProductList = ({ products }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
+    width: '90%',
     height: '90%',
-    padding: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
   },
 });
 

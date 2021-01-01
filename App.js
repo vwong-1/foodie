@@ -1,30 +1,61 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Keyboard } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import axios from 'axios';
-// import ip from './ip';
+import serverurl from './serverurl';
 
 //components
 import Home from './components/Home';
 import Search from './components/Search';
 import SearchedView from './components/SearchedView';
+import ItemView from './components/ItemView'
 
 const App = () => {
-  const [searchResults, onSearch] = React.useState();
+  const [searchResults, setResults] = React.useState();
+  const [viewMode, switchView] = React.useState('Home');
+  const [searched, setSearched] = React.useState();
+  const [productInfo, setProduct] = React.useState();
 
   const onSearchSubmit = (value) => {
-    axios.get(`http://00030dd842b8.ngrok.io/foods?item=${value}`)
+    if (!value.length) {
+      return;
+    }
+    axios.get(`${serverurl}/foods?item=${value}`)
       .then(res => {
-        onSearch(res.data);
+        setResults(res.data);
+        setSearched(value);
+        switchView('SearchedView');
       })
       .catch(e => alert(e));
   };
 
-  let view = searchResults ? <SearchedView searchSubmit={onSearchSubmit} searchResults={searchResults} /> : <Home searchSubmit={onSearchSubmit} />
+  const returnHome = () => {
+    setResults(null);
+    setSearched(null);
+    switchView('Home');
+  }
+
+  let view;
+  switch (viewMode) {
+    case 'Home':
+      view = <Home searchSubmit={onSearchSubmit} />;
+      break;
+    case 'SearchedView':
+      view = <SearchedView searched={searched} searchSubmit={onSearchSubmit} searchResults={searchResults} returnHome={returnHome} switchView={switchView} setProduct={setProduct} />;
+      break;
+    case 'ItemView':
+      view = <ItemView switchView={switchView} productInfo={productInfo} />
+      break;
+    default:
+      view = <Home searchSubmit={onSearchSubmit} />;
+  }
 
   return (
-    <View style = { styles.container } >
-      {view}
+    <View style={styles.container} >
+      <StatusBar />
+      <TouchableOpacity onPress={() => Keyboard.dismiss()} style={styles.view} activeOpacity={1} >
+        {view}
+      </TouchableOpacity>
     </View>
   );
 };
@@ -36,6 +67,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  view: {
+    width: '100%',
+    height: '100%',
+    borderWidth: 1,
+    justifyContent: 'center',
+  }
 });
 
 export default App;
