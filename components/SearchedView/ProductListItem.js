@@ -16,11 +16,15 @@ const ProductListItem = ({ setProduct, switchView, product }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onPress} style={styles.view}>
-        <Text>{product.food_id}</Text>
-        <Text>{product.food_name}</Text>
-        <Text>{product.restaurant_name}</Text>
-        <Text>{product.average_rating ? `${product.average_rating} ⭑(${product.rating_count})` : `0 ⭑(${product.rating_count})`}</Text>
-        <Text>{product.price === '0.00' ? 'unknown' : `$${product.price}`}</Text>
+        <View style={styles.descriptionContainer}>
+          <Text>{product.food_name}</Text>
+          <Text>{product.restaurant_name}</Text>
+          <Text>{product.average_rating ? `${product.average_rating} ⭑(${product.rating_count})` : `0 ⭑(${product.rating_count})`}</Text>
+          <Text>{product.price === '0.00' ? 'unknown' : `$${product.price}`}</Text>
+        </View>
+        <View style={styles.photoContainer}>
+          <Text>Photo</Text>
+        </View>
       </TouchableOpacity>
     </View>
   );
@@ -36,8 +40,20 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
   },
   view: {
+    display: 'flex',
+    flexDirection: 'row',
     width: '100%',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+  },
+  descriptionContainer: {
+    // borderWidth: 1,
+    width: '75%'
+  },
+  photoContainer: {
+    borderWidth: 1,
+    borderColor: 'black',
+    height: 80,
+    width: '25%'
   }
 });
 
