@@ -4,9 +4,9 @@ import { StatusBar } from 'expo-status-bar';
 import axios from 'axios';
 
 //components
-import ActiveSearch from './ActiveSearch';
+import ActiveSearch from './Assets/ActiveSearch';
 import ProductList from './SearchedView/ProductList';
-import NavBar from './NavBar';
+import NavBar from './Assets/NavBar';
 
 const SearchedView = ({ setProduct, returnHome, searched, searchSubmit, searchResults, switchView }) => {
 

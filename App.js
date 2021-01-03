@@ -6,7 +6,6 @@ import serverurl from './serverurl';
 
 //components
 import Home from './components/Home';
-import Search from './components/Search';
 import SearchedView from './components/SearchedView';
 import ItemView from './components/ItemView'
 
