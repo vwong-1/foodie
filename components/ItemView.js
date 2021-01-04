@@ -21,6 +21,8 @@ const ItemView = ({ switchView, productInfo }) => {
         <Text>{productInfo[0].food_name}</Text>
         <Text style={styles.title}>RESTAURANT:</Text>
         <Text>{productInfo[0].restaurant_name}</Text>
+        <Text style={styles.title}>ADDRESS:</Text>
+        <Text>{productInfo[0].full_address ? productInfo[0].full_address : 'GET ADDRESS'}</Text>
         <Text style={styles.title}>DESCRIPTION:</Text>
         <Text>{productInfo[0].food_description ? productInfo[0].food_description : 'No Description'}</Text>
         <Text style={styles.title}>PRICE:</Text>
