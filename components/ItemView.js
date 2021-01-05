@@ -18,7 +18,7 @@ const ItemView = ({ switchView, productInfo }) => {
   const onPress = () => switchView('SearchedView');
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.button}>
         <Button onPress={onPress} title="< Search" />
       </View>
@@ -53,7 +53,7 @@ const ItemView = ({ switchView, productInfo }) => {
         </View>
         <MoreReviews id={productInfo.food_id} />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -92,7 +92,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   reviewTitleContainer: {
-    display: 'flex',
     flexDirection: 'row',
     width: '90%',
     justifyContent: 'space-between',
@@ -111,10 +110,10 @@ const styles = StyleSheet.create({
     borderColor: '#aaa',
     alignSelf: 'center',
   },
-  buttonContainer: {
-    height: '150%',
-    alignSelf: 'center',
-  },
+  // buttonContainer: {
+  //   height: '150%',
+  //   alignSelf: 'center',
+  // },
   photoContainer: {
     width: '100%',
     marginBottom: 10,
