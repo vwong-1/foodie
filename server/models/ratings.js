@@ -5,7 +5,7 @@ module.exports = {
     console.log('ratings')
     const client = await db.pool.connect();
     try {
-      const query = `SELECT ratings.*, i.*, r.restaurant_name, u.username
+      const query = `SELECT ratings.*, i.*, r.restaurant_name, r.full_address, u.username
       FROM foodies.items i
       LEFT JOIN foodies.ratings
         INNER JOIN foodies.users u ON u.user_id = ratings.user_id
@@ -24,10 +24,12 @@ module.exports = {
     const client = await db.pool.connect();
     try {
       await client.query('BEGIN');
-      // insert query
-      const query = `INSERT INTO foodies.ratings`
+      // update average & increase count
+      const getQuery = `SELECT average_ratings, rating_count FROM foodies.items WHERE food_id=${rating.food_id}`
+      const get = await client.query(getQuery);
+
+      const insertQuery = `INSERT INTO foodies.ratings`
       const results = await client.query(query);
-      // update average query & increase count
 
       await client.query('COMMIT');
       cb(null, 'success');

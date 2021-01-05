@@ -52,9 +52,7 @@ const App = () => {
   return (
     <View style={styles.container} >
       <StatusBar />
-      <TouchableOpacity onPress={() => Keyboard.dismiss()} style={styles.view} activeOpacity={1} >
         {view}
-      </TouchableOpacity>
     </View>
   );
 };
@@ -66,12 +64,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  view: {
-    width: '100%',
-    height: '100%',
-    borderWidth: 1,
-    justifyContent: 'center',
-  }
 });
 
 export default App;

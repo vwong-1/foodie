@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Keyboard, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import axios from 'axios';
 
@@ -11,11 +11,13 @@ import NavBar from './Assets/NavBar';
 const SearchedView = ({ setProduct, returnHome, searched, searchSubmit, searchResults, switchView }) => {
 
   return (
-    <View style = { styles.container } >
-      <ActiveSearch searchSubmit={ searchSubmit } searched={searched} returnHome={returnHome}/>
-      <NavBar style = { styles.nav } />
-      <ProductList switchView={switchView} products={searchResults} setProduct={setProduct} />
-    </View>
+    <View style={styles.container} >
+      <TouchableOpacity onPress={() => Keyboard.dismiss()} style={styles.view} activeOpacity={1} >
+        <ActiveSearch searchSubmit={searchSubmit} searched={searched} returnHome={returnHome} />
+        <NavBar style={styles.nav} />
+        <ProductList switchView={switchView} products={searchResults} setProduct={setProduct} />
+      </TouchableOpacity>
+    </View >
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet } from 'react-native';
 
 //components
 import ProductListItem from './ProductListItem';
@@ -21,8 +21,7 @@ const styles = StyleSheet.create({
   container: {
     width: '90%',
     height: '90%',
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingBottom: '7%',
   },
 });
 

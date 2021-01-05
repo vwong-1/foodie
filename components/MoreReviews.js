@@ -187,7 +187,7 @@ export default function WriteReview() {
         onPress={() => {
           setModalVisible(true);
         }}>
-        <Text style={styles.textStyle}>Write a Review</Text>
+        <Text style={styles.textStyle}>See more reveiws</Text>
       </TouchableHighlight>
     </View>
   );
@@ -196,6 +196,8 @@ export default function WriteReview() {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
+    width: '90%',
+    alignSelf: 'center',
     justifyContent: 'center',
   },
   modalView: {
@@ -232,14 +234,22 @@ const styles = StyleSheet.create({
     paddingRight:5
   },
   openButton: {
-    backgroundColor: '#3F72AF',
-    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: '#aaa',
+    backgroundColor: '#ddd',
+    borderRadius: 5,
     padding: 10,
     elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 0.85,
   },
   textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: '#000',
     textAlign: 'center',
   },
   modalText: {

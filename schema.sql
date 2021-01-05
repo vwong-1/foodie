@@ -48,7 +48,7 @@ CREATE SCHEMA foodies;
     healthy NUMERIC(1),
     quantity NUMERIC(1),
     text VARCHAR(2000),
-    review_time INT,
+    review_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     recommended BOOLEAN,
     up_vote INT,
     down_vote INT,
